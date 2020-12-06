@@ -1,22 +1,15 @@
 name: 'Rebase'
 description: 'Rebase '
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  github_token:
+    description: The GITHUB_TOKEN secret
     required: true
-    default: 'World'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+
 runs:
-  using: "composite"
-  steps:
-    - run: echo ${{ github.context }}.
-      shell: bash
-    - run: echo  ${{ github.head_ref }} - ${{ github.base_ref }}.
-      shell: bash
-    - run: echo ${{github}}
-      shell: bash
-    - run: ${{ github.action_path }}/test.sh
-      shell: bash
+  using: 'node12'
+  main: 'index.js'
+
+branding:
+  icon: 'arrow-up-right'
+  color: 'green'
