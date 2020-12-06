@@ -5,7 +5,7 @@ const exec = require('./exec.js');
 
 const run = async () => {
 
-	exec.result("sh rebase.sh", (err, response) => {
+	exec.result("sh ./rebase.sh", (err, response) => {
 		if (!err) {
 			console.log(response);
 		} else {
